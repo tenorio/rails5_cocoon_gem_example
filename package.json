@@ -1,5 +1,7 @@
 {
   "name": "users_register",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
