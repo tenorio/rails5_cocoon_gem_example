@@ -5,12 +5,30 @@
   <%= @user.name %>
 </p>
 
+<br>
+
+<p>
+  <strong>TELEPHONES</strong>
+</p>
+
+<p>  
+  <% @user.telephones.each_with_index do |tel, index| %>
+    <% i ||= index+1 %>
+    <br>
+    <strong><%= "Telephone #{i}:" %></strong>
+    <%= tel.number %>    
+  <% end %>
+</p>
+
+<br>
+
 <p>
   <strong>EXPERIENCES</strong>
 </p>
 
 <p>  
   <% @user.experiences.each_with_index do |exp, index| %>
+    <br>
     <strong>Company:</strong>
     <%= exp.company %>
     <br>
@@ -19,9 +37,10 @@
     <br>
     <strong>Occupation:</strong>
     <%= exp.occupation %>
-    <%= "<br><br>".html_safe if index+1 < @user.experiences.size %>
   <% end %>
 </p>
+
+<br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

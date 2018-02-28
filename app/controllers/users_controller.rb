@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @experience = @user.experiences.build
+    @telephone  = @user.telephones.build
   end
 
   # GET /users/1/edit
@@ -70,6 +71,9 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, experiences_attributes: [:id, :company, :period, :occupation, :_destroy])
+      params.require(:user).permit(:name, 
+                                   experiences_attributes: [:id, :company, :period, :occupation, 
+                                                            :_destroy],
+                                   telephones_attributes: [:id, :number])
     end
 end
