@@ -5,5 +5,23 @@
   <%= @user.name %>
 </p>
 
+<p>
+  <strong>EXPERIENCES</strong>
+</p>
+
+<p>  
+  <% @user.experiences.each_with_index do |exp, index| %>
+    <strong>Company:</strong>
+    <%= exp.company %>
+    <br>
+    <strong>Period:</strong>
+    <%= exp.period %>
+    <br>
+    <strong>Occupation:</strong>
+    <%= exp.occupation %>
+    <%= "<br><br>".html_safe if index+1 < @user.experiences.size %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
